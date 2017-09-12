@@ -1,0 +1,8 @@
+name: PDXTempBan
+version: 1
+author: Minimal
+main: net.paradox.tempban.Main
+commands:
+   addban:
+      description: Adds a ban to the ban list.
+      usage: /addban [player]
