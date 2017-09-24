@@ -15,13 +15,13 @@ public class BanManagement
 {
     TBHelp help = new TBHelp();
 
-    public void addBan(Player source, Player target, long time)
+    public void addBan(Player source, Player target, long time, Reasons reason)
     {
         long current = System.currentTimeMillis();
         long banTime = current + time;
-        String reason = help.getReason(Reasons.HACK_XRAY);
-        Bukkit.getBanList(Type.NAME).addBan(target.getName(), reason, new Date(banTime), source.getName());
-        target.kickPlayer(reason);
+        String foundReason = help.getReason(reason);
+        Bukkit.getBanList(Type.NAME).addBan(target.getName(), foundReason, new Date(banTime), source.getName());
+        target.kickPlayer(foundReason);
     }
 
     public void removeBan(Player target)
